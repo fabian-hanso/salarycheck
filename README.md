@@ -27,6 +27,6 @@ Salary Check ist als Vergleichsportal für Einstiegsgehälter im Bereich der Sof
 
 > Generiert den **build** Ordner.
 
-## Über die Entwickler
+## Über den Entwickler
 
 Mir ist es schon immer extrem wichtig gewesen, erlernte Fähigkeiten, erlangtes Wissen & andere Vorteile möglichst einfach, übersichtlich & einfach an andere weitergeben zu können. Aus diesem Grund überlege ich mir immer wieder neue Möglichkeiten, den Einstieg für andere zu vereinfachen und bereits vorab bestehende & aufkommende Fragen zu klären. Salarycheck
