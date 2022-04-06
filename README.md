@@ -14,14 +14,19 @@ Salary Check ist als Vergleichsportal für Einstiegsgehälter im Bereich der Sof
 <img align="left" alt="HTML5" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png" />
 <img align="left" alt="CSS3" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png" />
 <img align="left" alt="JavaScript" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" />
+<img align="left" alt="Material UI" width="26px" src="https://v4.mui.com/static/logo.png" />
 <br /><br />
 
 ### Skripte:
 
 `npm start`
 
-> Startet die Applikation lokal.
+> Startet die Applikation **lokal**.
 
 `npm run build`
 
 > Generiert den **build** Ordner.
+
+## Über die Entwickler
+
+Mir ist es schon immer extrem wichtig gewesen, erlernte Fähigkeiten, erlangtes Wissen & andere Vorteile möglichst einfach, übersichtlich & einfach an andere weitergeben zu können. Aus diesem Grund überlege ich mir immer wieder neue Möglichkeiten, den Einstieg für andere zu vereinfachen und bereits vorab bestehende & aufkommende Fragen zu klären. Salarycheck
