@@ -34,28 +34,27 @@ Salary Check ist als Vergleichsportal für Einstiegsgehälter im Bereich der Sof
 
 `1.0.0`
 
-> Release: Februar 2022
+> Release: **Februar 2022**
 >
-> > Grundlegende Funktionalität ohne Berechnungen vom Durchschnitts- & Monatsgehalt.
+> > Grundlegende **Funktionalität** ohne Berechnungen vom **Durchschnitts- & Monatsgehalt**.
 
 `1.1.0`
 
-> Release: Ende Februar 2022
+> Release: **Ende Februar 2022**
 >
-> > Mobile Optimierung / Es wird keine normale Tabelle mehr genutzt, sondern die Kachel-Optik.
+> > Mobile Optimierung / Es wird keine normale Tabelle mehr genutzt, sondern die **Kachel-Optik**.
 
 `1.2.0`
 
-> Release: Ende Fabruar 2022
+> Release: **Ende Februar 2022**
 >
-> > Einbindung einer Snackbar, welche angezeigt wird, wenn das Formular übermittelt wurde.
+> > Einbindung einer **Snackbar**, welche angezeigt wird, wenn das Formular übermittelt wurde.
 
 `1.2.1`
 
-> Release: 07. April 2022
+> Release: **07. April 2022**
 >
-> > Code Cleanup & Anpassungen am Footer
-> > <br />
+> > Code Cleanup & Anpassungen am **Footer** > > <br />
 
 ## Über den Entwickler
 
