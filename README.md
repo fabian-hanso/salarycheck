@@ -54,7 +54,9 @@ Salary Check ist als Vergleichsportal für Einstiegsgehälter im Bereich der Sof
 
 > Release: **07. April 2022**
 >
-> > Code Cleanup & Anpassungen am **Footer** > > <br />
+> > Code Cleanup & Anpassungen am **Footer**
+
+ <br />
 
 ## Über den Entwickler
 
