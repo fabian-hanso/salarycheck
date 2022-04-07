@@ -158,13 +158,9 @@ h1 > span {
   display: flex;
 }
 
-.entry-zeile > p {
+/* .entry-zeile > p {
   flex: 1;
-}
-
-.entry-zeile:nth-child(odd) {
-  background-color: rgba(25, 50, 81, 0.1);
-}
+} */
 
 .Footer {
   width: 100%;

@@ -24,6 +24,7 @@ import {
   orderBy,
   query,
 } from "@firebase/firestore";
+import Footer from "./components/Footer";
 
 function App() {
   const [currency, setCurrency] = useState(42000);
@@ -103,9 +104,9 @@ function App() {
       thenewbie,
     };
     const collectionRef = collection(firebase, "all");
-    // addDoc(collectionRef, payload);
+    addDoc(collectionRef, payload);
     displaySuccess();
-    console.log(payload);
+    // console.log(payload);
     form.reset();
   }
 
@@ -134,7 +135,6 @@ function App() {
     } else {
       setAverage(0);
     }
-    // console.log(average);
   }, [entries]);
 
   useEffect(() => {
@@ -163,7 +163,6 @@ function App() {
           <span>Vergleich der </span>Einstiegsgehälter
         </h1>
         <form onSubmit={formSubmit} className="Input-Wrapper">
-          {/* <div className="Input-Wrapper"> */}
           <TextField
             fullWidth
             required
@@ -294,7 +293,6 @@ function App() {
           <Button type="submit" variant="contained" className="button-color">
             Einreichen
           </Button>
-          {/* </div> */}
         </form>
         <div>
           <p className="small-p">
@@ -306,21 +304,32 @@ function App() {
         <h1>
           <span>Auf einen </span>Blick
         </h1>
-        {/* {console.log(average)} */}
         <div className="overViewWrapper">
           <div className="overViewInner">
             <img src={bottomIcon} alt="" className="grid-ju-ce" />
-            <h2 className="grid-ju-ce">{minSalary.toLocaleString() + " €"}</h2>
+            <h2 className="grid-ju-ce">
+              {minSalary.toLocaleString() >= 0
+                ? minSalary.toLocaleString() + " €"
+                : "0 €"}
+            </h2>
             <p className="grid-ju-ce">Niedrigste Angabe</p>
           </div>
           <div className="overViewInner orange">
             <img src={centerIcon} alt="" className="grid-ju-ce" />
-            <h2 className="grid-ju-ce">{average.toLocaleString() + " €"}</h2>
+            <h2 className="grid-ju-ce">
+              {average.toLocaleString() >= 0
+                ? average.toLocaleString() + " €"
+                : "0 €"}
+            </h2>
             <p className="grid-ju-ce">Mittelwert</p>
           </div>
           <div className="overViewInner">
             <img src={topIcon} alt="" className="grid-ju-ce" />
-            <h2 className="grid-ju-ce">{maxSalary.toLocaleString() + " €"}</h2>
+            <h2 className="grid-ju-ce">
+              {maxSalary.toLocaleString() >= 0
+                ? maxSalary.toLocaleString() + " €"
+                : "0 €"}
+            </h2>
             <p className="grid-ju-ce">Höchste Angabe</p>
           </div>
         </div>
@@ -330,55 +339,9 @@ function App() {
         <h1>
           <span>Weitere </span>Details
         </h1>
-        {/* <div className="entries">
-          <div className="TableHeader">
-            <h4>Stelle:</h4>
-            <h4>Standort:</h4>
-            <h4>Alter:</h4>
-            <h4>Gehalt:</h4>
-            <h4>Berufserfahrung:</h4>
-            <h4>Quereinsteiger:</h4>
-          </div>
-          {!isLoaded ? (
-            <div className="Loader-Wrapper">
-              <img
-                src={reloadIcon}
-                alt="Reload Icon"
-                className="Loading-Spinner"
-              />
-            </div>
-          ) : (
-            ""
-          )}
-          {entries.map((entry, index) => (
-            <div key={index} className="entry-zeile">
-              <p>{entry.thejob}</p>
-              <p>{entry.loc}</p>
-              <p>{entry.theage}</p>
-              <p>{entry.thefee.toLocaleString() + " €"}</p>
-              <p>
-                {entry.theexperience === 0
-                  ? "< 1 Jahr"
-                  : entry.theexperience === 1
-                  ? "1 Jahr"
-                  : entry.theexperience + " Jahre"}
-              </p>
-              <p>
-                {entry.thenewbie === 0
-                  ? "Ja"
-                  : entry.thenewbie === 1
-                  ? "Nein"
-                  : "Nicht bekannt!"}
-              </p>
-            </div>
-          ))}
-        </div> */}
         <MobileTable allEntries={entries} mainAverage={average} />
       </div>
-      <div className="Footer">
-        <h4>©Fabian Hanso 2022</h4>
-        {/* <a href="">GitHub</a> */}
-      </div>
+      <Footer />
     </div>
   );
 }
