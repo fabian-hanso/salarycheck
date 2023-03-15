@@ -4,7 +4,6 @@ import "../App.css";
 import nextButton from "../images/navigate_next_black_24dp.svg";
 
 function JobsList({ jobs }) {
-  const [average, setAverage] = useState(0);
   const [isActive, setIsActive] = useState(-1);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -22,7 +21,6 @@ function JobsList({ jobs }) {
     } else {
       setIsActive(index);
     }
-    // setDetailsOpen(!detailsOpen);
   }
 
   return (

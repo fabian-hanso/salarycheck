@@ -3,9 +3,8 @@ import reloadIcon from "../images/refresh.svg";
 import "../App.css";
 import nextButton from "../images/navigate_next_black_24dp.svg";
 
-function MobileTable({ allEntries, mainAverage }) {
+function MobileTable({ allEntries }) {
   const [entries, setEntries] = useState([]);
-  // const [average, setAverage] = useState(0);
   const [isActive, setIsActive] = useState(-1);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -15,10 +14,6 @@ function MobileTable({ allEntries, mainAverage }) {
       setIsLoaded(true);
     }
   }, [allEntries]);
-
-  // useEffect(() => {
-  //   setAverage(mainAverage);
-  // }, [mainAverage]);
 
   function toggleDetailsMobile(index) {
     if (isActive === index) {
