@@ -119,4 +119,104 @@ export const ages = [
     value: 45,
     label: "45",
   },
+  {
+    value: 46,
+    label: "46",
+  },
+  {
+    value: 47,
+    label: "47",
+  },
+  {
+    value: 48,
+    label: "48",
+  },
+  {
+    value: 49,
+    label: "49",
+  },
+  {
+    value: 50,
+    label: "50",
+  },
+  {
+    value: 51,
+    label: "51",
+  },
+  {
+    value: 52,
+    label: "52",
+  },
+  {
+    value: 53,
+    label: "53",
+  },
+  {
+    value: 54,
+    label: "54",
+  },
+  {
+    value: 55,
+    label: "55",
+  },
+  {
+    value: 56,
+    label: "56",
+  },
+  {
+    value: 57,
+    label: "57",
+  },
+  {
+    value: 58,
+    label: "58",
+  },
+  {
+    value: 59,
+    label: "59",
+  },
+  {
+    value: 60,
+    label: "60",
+  },
+  {
+    value: 61,
+    label: "61",
+  },
+  {
+    value: 62,
+    label: "62",
+  },
+  {
+    value: 63,
+    label: "63",
+  },
+  {
+    value: 64,
+    label: "64",
+  },
+  {
+    value: 65,
+    label: "65",
+  },
+  {
+    value: 66,
+    label: "66",
+  },
+  {
+    value: 67,
+    label: "67",
+  },
+  {
+    value: 68,
+    label: "68",
+  },
+  {
+    value: 69,
+    label: "69",
+  },
+  {
+    value: 70,
+    label: "70",
+  },
 ];

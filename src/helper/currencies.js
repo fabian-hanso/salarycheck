@@ -216,4 +216,44 @@ export const currencies = [
     value: 80000,
     label: "80.000 €",
   },
+  {
+    value: 81000,
+    label: "81.000 €",
+  },
+  {
+    value: 82000,
+    label: "82.000 €",
+  },
+  {
+    value: 83000,
+    label: "83.000 €",
+  },
+  {
+    value: 84000,
+    label: "84.000 €",
+  },
+  {
+    value: 85000,
+    label: "85.000 €",
+  },
+  {
+    value: 86000,
+    label: "86.000 €",
+  },
+  {
+    value: 87000,
+    label: "87.000 €",
+  },
+  {
+    value: 88000,
+    label: "88.000 €",
+  },
+  {
+    value: 89000,
+    label: "89.000 €",
+  },
+  {
+    value: 90000,
+    label: "90.000 €",
+  },
 ];
