@@ -94,10 +94,12 @@ h1 > span {
 }
 
 .main-mobile-content {
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; */
+  display: grid;
+  grid-template-columns: 1fr auto;
 }
 
 /* .circle-background {
@@ -320,4 +322,57 @@ h1 > span {
 
 .snack-image {
   height: 17px;
+}
+
+.button-grid {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.Footer-Link-Wrapper {
+  border: 1px solid #fff;
+  border-radius: 4px;
+  height: auto;
+  display: flex;
+  width: fit-content;
+  padding: 10px 30px 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  align-items: center;
+}
+
+.Filter-Group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.Filter-Button {
+  all: unset;
+  padding: 5px 10px;
+  border: 1px solid #dedede;
+  border-radius: 4px;
+  margin: 0px 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.Filter-Button:hover {
+  background-color: #ff5a36;
+  color: #fff;
+  border: 1px solid #ff5a36;
+}
+
+.Filtered-Active {
+  background-color: rgb(25, 50, 81);
+  color: #fff;
+  border: 1px solid rgb(25, 50, 81);
+}
+
+.jobs-link-headline {
+  font-weight: 500;
+  color: #ff5a36;
+  text-decoration: none;
 }

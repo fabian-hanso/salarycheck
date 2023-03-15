@@ -3,22 +3,18 @@ import reloadIcon from "../images/refresh.svg";
 import "../App.css";
 import nextButton from "../images/navigate_next_black_24dp.svg";
 
-function MobileTable({ allEntries, mainAverage }) {
-  const [entries, setEntries] = useState([]);
+function JobsList({ jobs }) {
   const [average, setAverage] = useState(0);
   const [isActive, setIsActive] = useState(-1);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setEntries(allEntries);
-    if (allEntries.length > 0) {
-      setIsLoaded(true);
+    if (jobs) {
+      setIsLoading(false);
+    } else {
+      setIsLoading(true);
     }
-  }, [allEntries]);
-
-  useEffect(() => {
-    setAverage(mainAverage);
-  }, [mainAverage]);
+  }, [jobs]);
 
   function toggleDetailsMobile(index) {
     if (isActive === index) {
@@ -31,14 +27,14 @@ function MobileTable({ allEntries, mainAverage }) {
 
   return (
     <div className="mobile-entries">
-      {!isLoaded ? (
+      {isLoading ? (
         <div className="Loader-Wrapper">
           <img src={reloadIcon} alt="Reload Icon" className="Loading-Spinner" />
         </div>
       ) : (
         ""
       )}
-      {entries.map((entry, index) => (
+      {jobs.map((jobs, index) => (
         <div
           className="mobile-entry"
           key={index}
@@ -46,8 +42,8 @@ function MobileTable({ allEntries, mainAverage }) {
         >
           <div className="main-mobile-content">
             <div className="mobile-headline">
-              <h4 className="h4-dark">{entry.thejob}</h4>
-              <p>{entry.thefee.toLocaleString() + " €"}</p>
+              <h4 className="h4-dark">{jobs.jobtitle}</h4>
+              <p>{jobs.joblocation}</p>
             </div>
             <div className="ButtonCover">
               <img
@@ -63,45 +59,50 @@ function MobileTable({ allEntries, mainAverage }) {
             <div className="details-mobile-content">
               <div className="content-block-mobile">
                 <h4 className="h4-dark">
-                  {entry.theexperience === 0
-                    ? "< 1 Jahr"
-                    : entry.theexperience === 1
-                    ? "1 Jahr"
-                    : entry.theexperience + " Jahre"}
+                  {jobs.jobremote ? "Erwünscht" : "Nicht erwünscht"}
                 </h4>
-                <p>Berufserfahrung</p>
-              </div>
-              <div className="content-block-mobile">
-                <h4 className="h4-dark">{entry.theage}</h4>
-                <p>Alter</p>
-              </div>
-              <div className="content-block-mobile">
-                <h4 className="h4-dark">{entry.loc}</h4>
-                <p>Standort</p>
+                <p>Remotearbeit</p>
               </div>
               <div className="content-block-mobile">
                 <h4 className="h4-dark">
-                  {entry.loc === 0
-                    ? "Ja"
-                    : entry.thenewbie === 1
-                    ? "Nein"
-                    : "Ja"}
+                  {jobs.jobtimesflex ? "Flexibel" : "Fest"}
+                </h4>
+                <p>Arbeitszeiten</p>
+              </div>
+              <div className="content-block-mobile">
+                <h4 className="h4-dark">{jobs.jobbasics}</h4>
+                <p>Basics</p>
+              </div>
+              <div className="content-block-mobile">
+                <h4 className="h4-dark">{jobs.jobframeworks}</h4>
+                <p>Frameworks</p>
+              </div>
+              <div className="content-block-mobile">
+                <h4 className="h4-dark">
+                  {jobs.jobquereinsteiger ? "Erwünscht" : "Nicht erwünscht"}
                 </h4>
                 <p>Quereinsteiger</p>
               </div>
               <div className="content-block-mobile">
                 <h4 className="h4-dark">
-                  {Math.floor(entry.thefee / 12).toLocaleString() + " €"}
+                  {jobs.jobvorwissen ? "Von Vorteil" : "Nicht nötig"}
                 </h4>
-                <p>Brutto / Monat</p>
+                <p>Vorwissen</p>
               </div>
               <div className="content-block-mobile">
-                <h4 className="h4-dark">{entry.thebereich + " Entwickler"}</h4>
-                <p>Bereich</p>
+                <h4 className="h4-dark">{jobs.jobbenefits}</h4>
+                <p>Benefits</p>
               </div>
               <div className="content-block-mobile">
-                <h4 className="h4-dark">{entry.thejoblevel}</h4>
-                <p>Job-Level</p>
+                <a
+                  target="_blank"
+                  href={jobs.joblink}
+                  className="jobs-link-headline"
+                  rel="noreferrer"
+                >
+                  Hier mehr erfahren
+                </a>
+                <p>Link</p>
               </div>
             </div>
           ) : (
@@ -113,4 +114,4 @@ function MobileTable({ allEntries, mainAverage }) {
   );
 }
 
-export default MobileTable;
+export default JobsList;

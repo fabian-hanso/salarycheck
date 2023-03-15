@@ -25,6 +25,8 @@ import {
   query,
 } from "@firebase/firestore";
 import Footer from "./components/Footer";
+import { MessengerChat } from "react-messenger-chat-plugin";
+import JobsList from "./components/JobsList";
 
 function App() {
   const [currency, setCurrency] = useState(42000);
@@ -38,6 +40,12 @@ function App() {
   const [formSuccess, setFormSuccess] = useState(false);
   const [handleLevel, setHandleLevel] = useState("Junior");
   const [handleBereich, setHandleBereich] = useState("Frontend");
+  const [activeFilter, setActiveFilter] = useState("Alle");
+  const [filteredEntries, setFilteredEntries] = useState(null);
+  const [jobs, setJobs] = useState([]);
+  const [frontendCount, setFrontendCount] = useState(0);
+  const [backEndCount, setBackendCount] = useState(0);
+  const [fullStackCount, setFullStackCount] = useState(0);
 
   const handleChange = (event) => {
     setCurrency(event.target.value);
@@ -106,15 +114,27 @@ function App() {
     const collectionRef = collection(firebase, "all");
     addDoc(collectionRef, payload);
     displaySuccess();
-    // console.log(payload);
     form.reset();
   }
 
+  // Get all Entrys
   useEffect(() => {
     const isunsubscribe = onSnapshot(
       query(collection(firebase, "all"), orderBy("timestamp", "asc")),
       (snapshot) => {
         setEntries(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      }
+    );
+
+    return isunsubscribe;
+  }, []);
+
+  // Get Jobs
+  useEffect(() => {
+    const isunsubscribe = onSnapshot(
+      query(collection(firebase, "jobs")),
+      (snapshot) => {
+        setJobs(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       }
     );
 
@@ -141,6 +161,27 @@ function App() {
     let salaries = entries.map((item) => item.thefee);
     setMinSalary(Math.min(...salaries));
     setMaxSalary(Math.max(...salaries));
+  }, [entries]);
+
+  const onSetActiveFilter = (tab) => {
+    setActiveFilter(tab);
+    if (tab !== "Alle") {
+      setFilteredEntries(
+        entries.filter((entry) => entry.thebereich.includes(tab))
+      );
+    }
+  };
+
+  useEffect(() => {
+    setFrontendCount(
+      entries.filter((entry) => entry.thebereich.includes("Frontend"))
+    );
+    setBackendCount(
+      entries.filter((entry) => entry.thebereich.includes("Backend"))
+    );
+    setFullStackCount(
+      entries.filter((entry) => entry.thebereich.includes("Full-Stack"))
+    );
   }, [entries]);
 
   return (
@@ -339,9 +380,66 @@ function App() {
         <h1>
           <span>Weitere </span>Details
         </h1>
-        <MobileTable allEntries={entries} mainAverage={average} />
+        <div className="Filter-Group">
+          <button
+            className={
+              activeFilter === "Alle"
+                ? "Filter-Button Filtered-Active"
+                : "Filter-Button"
+            }
+            onClick={() => onSetActiveFilter("Alle")}
+          >
+            {"Alle (" + entries.length + ")"}
+          </button>
+          <button
+            className={
+              activeFilter === "Frontend"
+                ? "Filter-Button Filtered-Active"
+                : "Filter-Button"
+            }
+            onClick={() => onSetActiveFilter("Frontend")}
+          >
+            {"Frontend (" + frontendCount.length + ")"}
+          </button>
+          <button
+            className={
+              activeFilter === "Backend"
+                ? "Filter-Button Filtered-Active"
+                : "Filter-Button"
+            }
+            onClick={() => onSetActiveFilter("Backend")}
+          >
+            {"Backend (" + backEndCount.length + ")"}
+          </button>
+          <button
+            className={
+              activeFilter === "Full-Stack"
+                ? "Filter-Button Filtered-Active"
+                : "Filter-Button"
+            }
+            onClick={() => onSetActiveFilter("Full-Stack")}
+          >
+            {"Full-Stack (" + fullStackCount.length + ")"}
+          </button>
+        </div>
+        <MobileTable
+          allEntries={activeFilter === "Alle" ? entries : filteredEntries}
+          mainAverage={average}
+        />
+        <div>
+          <div className="Trennlinie"></div>
+        </div>
+        <h1>
+          <span>Offene </span>Stellen
+        </h1>
+        <JobsList jobs={jobs} />
       </div>
       <Footer />
+      <MessengerChat
+        pageId="103195915190910"
+        language="de_DE"
+        themeColor={"#ff5a36"}
+      />
     </div>
   );
 }
